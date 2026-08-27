@@ -1,194 +1,77 @@
 # AI Skills
 
-个人 AI skills 仓库，用一个目录维护可复用的 agent skills。
+个人 AI Skill 仓库. Skill 按用途分类存储, 同时通过扁平兼容索引供 Codex, Claude Code 和其他兼容 Agent Skills 的工具加载.
 
-This is a personal AI skills repository for maintaining reusable agent skills in one place.
-
-## Goals / 目标
-
-中文：
-
-* OpenClaw 是主要使用方。
-* Codex 可以通过个人 agent skills 目录共用。
-* Claude Code 只在需要调试时通过 `--add-dir` 临时加载。
-* `skills/` 是唯一的 skill 源目录，避免多份拷贝漂移。
-
-English:
-
-* OpenClaw is the primary consumer.
-* Codex can share the same skills through the personal agent skills directory.
-* Claude Code loads these skills only when needed for debugging via `--add-dir`.
-* `skills/` is the single source directory for skills to avoid duplicated copies drifting apart.
-
-## Directory Structure / 目录结构
+## Directory Layout
 
 ```text
 .
-├── AGENTS.md
-├── README.md
-├── .claude/
-│   └── skills -> ../skills
-└── skills/
-    └── latest-news/
-        ├── SKILL.md
-        └── scripts/
-            ├── fetch_rss.py
-            └── news_api.py
+|-- dev/
+|   `-- skills/                 Development skills
+|-- life/
+|   `-- skills/                 Personal and daily-life skills
+|       `-- latest-news/
+|-- work/
+|   `-- skills/                 Work and domain skills
+|-- .agents/
+|   `-- skills/                 Codex discovery index
+|       `-- latest-news -> ../../life/skills/latest-news
+|-- .claude/
+|   `-- skills/                 Claude Code discovery index
+|       `-- latest-news -> ../../life/skills/latest-news
+`-- scripts/
+    `-- sync-skill-links.sh
 ```
 
-中文：
+## Source Of Truth
 
-* `skills/` 是唯一的 skill 源目录。
-* `skills/<skill-name>/` 代表一个 skill。
-* `.claude/skills` 是指向 `../skills` 的相对软链接，用于 Claude Code 临时调试。
+真实 Skill 源码只存放在以下分类目录:
 
-English:
+- `dev/skills/<skill-name>/`
+- `life/skills/<skill-name>/`
+- `work/skills/<skill-name>/`
 
-* `skills/` is the only source directory for skills.
-* `skills/<skill-name>/` represents one skill.
-* `.claude/skills` is a relative symlink to `../skills`, used for temporary Claude Code debugging.
+`.agents/skills/` 和 `.claude/skills/` 是由软链接组成的发现索引. 它们不是 Skill 源码目录.
 
-## Skill Format / Skill 格式
+当前 `latest-news` 的真实位置是 `life/skills/latest-news/`.
 
-推荐使用三方都容易识别的最小公共格式。
+## Agent Compatibility
 
-Use the smallest common format that all three tools can understand.
+- Codex 通过 `.agents/skills/` 发现 Skill.
+- Claude Code 通过 `.claude/skills/` 发现 Skill.
 
-```text
-skills/<skill-name>/
-└── SKILL.md
+所有入口最终指向同一份分类源码, 不需要复制 Skill 内容.
+
+## Add A Skill
+
+先在合适的分类目录创建 Skill. 例如开发类 Skill:
+
+```bash
+mkdir -p dev/skills/my-skill
 ```
 
-Recommended `SKILL.md` format:
+创建 `dev/skills/my-skill/SKILL.md`:
 
 ```markdown
 ---
-name: skill-name
-description: One-line description for when to use this skill.
+name: my-skill
+description: Explain when this skill should be used.
 ---
 
-Skill instructions...
+Skill instructions.
 ```
 
-中文：
-
-* 为了兼容 OpenClaw，frontmatter 尽量保持简单。
-* `name` 使用单行。
-* `description` 使用单行。
-* 共享 skill 不依赖 Claude-only 或 Codex-only 字段。
-
-English:
-
-* Keep frontmatter simple for OpenClaw compatibility.
-* Use a single-line `name`.
-* Use a single-line `description`.
-* Shared skills should not depend on Claude-only or Codex-only fields.
-
-## OpenClaw
-
-OpenClaw 是这个仓库的主要使用方。
-
-OpenClaw is the main consumer of this repository.
-
-Recommended configuration:
-
-```json
-{
-  "skills": {
-    "load": {
-      "extraDirs": [
-        "/Users/yuhaiyang/Documents/code/myself/ai-skills/skills"
-      ]
-    }
-  }
-}
-```
-
-也可以通过个人 agent skills 目录加载。
-
-You can also load the repository through the personal agent skills directory.
+然后更新扁平兼容索引:
 
 ```bash
-ln -s /Users/yuhaiyang/Documents/code/myself/ai-skills/skills ~/.agents/skills
+./scripts/sync-skill-links.sh
 ```
 
-如果 `~/.agents/skills` 已经存在，先检查里面是否有需要保留的 skills，不要直接覆盖。
+新增, 移动或删除 Skill 后都需要运行该脚本.
 
-If `~/.agents/skills` already exists, inspect it first and avoid overwriting existing skills.
+## Constraints
 
-## Codex
-
-Codex 会读取个人 agent skills 目录：
-
-Codex reads the personal agent skills directory:
-
-```text
-~/.agents/skills
-```
-
-如果已经为 OpenClaw 把 `~/.agents/skills` 指向本仓库的 `skills/`，Codex 可以共用同一批 skills。
-
-If `~/.agents/skills` already points to this repository's `skills/` directory for OpenClaw, Codex can share the same skills.
-
-## Claude Code
-
-Claude Code 不作为主安装目标。需要临时调试本仓库 skills 时，使用 `--add-dir`：
-
-Claude Code is not the primary installation target. Use `--add-dir` when you need to debug these skills temporarily:
-
-```bash
-claude --add-dir /Users/yuhaiyang/Documents/code/myself/ai-skills
-```
-
-Claude Code 会加载 added directory 里的：
-
-Claude Code will load skills from:
-
-```text
-/Users/yuhaiyang/Documents/code/myself/ai-skills/.claude/skills
-```
-
-本仓库中的 `.claude/skills` 是相对软链接：
-
-In this repository, `.claude/skills` is a relative symlink:
-
-```text
-.claude/skills -> ../skills
-```
-
-这样 Claude Code 可以读取同一批 `skills/`，但不会把 `~/.claude/skills` 指向本仓库，避免 Claude 安装 personal skill 时污染共享目录。
-
-This lets Claude Code read the same `skills/` directory without pointing `~/.claude/skills` at this repository, avoiding accidental pollution when Claude installs personal skills.
-
-## Add a New Skill / 新增 Skill
-
-Create a skill directory:
-
-```bash
-mkdir -p skills/kubernetes
-```
-
-Create the entry file:
-
-```bash
-touch skills/kubernetes/SKILL.md
-```
-
-Final structure:
-
-```text
-skills/kubernetes/
-└── SKILL.md
-```
-
-新增后：
-
-* OpenClaw 通过 `extraDirs` 或 `~/.agents/skills` 加载。
-* Codex 通过 `~/.agents/skills` 加载。
-* Claude Code 调试时通过 `claude --add-dir /Users/yuhaiyang/Documents/code/myself/ai-skills` 加载。
-
-After adding a skill:
-
-* OpenClaw loads it through `extraDirs` or `~/.agents/skills`.
-* Codex loads it through `~/.agents/skills`.
-* Claude Code loads it for debugging through `claude --add-dir /Users/yuhaiyang/Documents/code/myself/ai-skills`.
+- 不要直接在 `.agents/skills/` 或 `.claude/skills/` 下创建真实 Skill 目录.
+- 不同分类中的 Skill 名称必须全局唯一.
+- 同步脚本遇到重复名称或现有非托管路径时会停止, 不会直接覆盖.
+- Shared Skill 使用标准的 `SKILL.md` 格式, Agent 专属配置放在 Skill 自己的可选目录中.
