@@ -8,6 +8,11 @@
 .
 |-- dev/
 |   `-- skills/                 Development skills
+|       |-- domain-modeling/
+|       |-- grill-with-docs/
+|       |-- grilling/
+|       |-- to-spec/
+|       `-- to-tickets/
 |-- life/
 |   `-- skills/                 Personal and daily-life skills
 |       `-- latest-news/
@@ -15,10 +20,22 @@
 |   `-- skills/                 Work and domain skills
 |-- .agents/
 |   `-- skills/                 Codex discovery index
-|       `-- latest-news -> ../../life/skills/latest-news
+|       |-- domain-modeling -> ../../dev/skills/domain-modeling
+|       |-- grill-with-docs -> ../../dev/skills/grill-with-docs
+|       |-- grilling -> ../../dev/skills/grilling
+|       |-- latest-news -> ../../life/skills/latest-news
+|       |-- to-spec -> ../../dev/skills/to-spec
+|       `-- to-tickets -> ../../dev/skills/to-tickets
 |-- .claude/
 |   `-- skills/                 Claude Code discovery index
-|       `-- latest-news -> ../../life/skills/latest-news
+|       |-- domain-modeling -> ../../dev/skills/domain-modeling
+|       |-- grill-with-docs -> ../../dev/skills/grill-with-docs
+|       |-- grilling -> ../../dev/skills/grilling
+|       |-- latest-news -> ../../life/skills/latest-news
+|       |-- to-spec -> ../../dev/skills/to-spec
+|       `-- to-tickets -> ../../dev/skills/to-tickets
+|-- LICENSES/
+|   `-- mattpocock-skills-MIT.txt
 `-- scripts/
     `-- sync-skill-links.sh
 ```
@@ -33,7 +50,14 @@
 
 `.agents/skills/` 和 `.claude/skills/` 是由软链接组成的发现索引. 它们不是 Skill 源码目录.
 
-当前 `latest-news` 的真实位置是 `life/skills/latest-news/`.
+当前 Skill 的真实位置:
+
+- `domain-modeling`: `dev/skills/domain-modeling/`
+- `grill-with-docs`: `dev/skills/grill-with-docs/`
+- `grilling`: `dev/skills/grilling/`
+- `latest-news`: `life/skills/latest-news/`
+- `to-spec`: `dev/skills/to-spec/`
+- `to-tickets`: `dev/skills/to-tickets/`
 
 ## Agent Compatibility
 
@@ -75,3 +99,8 @@ Skill instructions.
 - 不同分类中的 Skill 名称必须全局唯一.
 - 同步脚本遇到重复名称或现有非托管路径时会停止, 不会直接覆盖.
 - Shared Skill 使用标准的 `SKILL.md` 格式, Agent 专属配置放在 Skill 自己的可选目录中.
+
+## Upstream Sources
+
+- `dev/skills/grilling/`, `dev/skills/domain-modeling/`, `dev/skills/grill-with-docs/`, `dev/skills/to-spec/` 和 `dev/skills/to-tickets/` 基于 [mattpocock/skills](https://github.com/mattpocock/skills) 定制.
+- 上游版本和 MIT 许可证保存在 [`LICENSES/mattpocock-skills-MIT.txt`](./LICENSES/mattpocock-skills-MIT.txt).

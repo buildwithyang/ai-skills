@@ -1,0 +1,6 @@
+interface:
+  display_name: "To Spec"
+  short_description: "将已确认方案整理为唯一一份 formal Spec"
+  default_prompt: "使用 $to-spec 将当前已确认方案整理为唯一一份 formal Spec."
+policy:
+  allow_implicit_invocation: false

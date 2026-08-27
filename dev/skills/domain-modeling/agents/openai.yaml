@@ -1,0 +1,4 @@
+interface:
+  display_name: "Domain Modeling"
+  short_description: "校准 Domain Model 并维护 CONTEXT.md 和 ADR"
+  default_prompt: "使用 $domain-modeling 校准这个设计的 Domain Model 和 architecture decisions."

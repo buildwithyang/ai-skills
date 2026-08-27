@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grilling"
+  short_description: "进入原生 Plan mode 后追问关键决策并形成可执行方案"
+  default_prompt: "使用 $grilling 进入 Plan mode 并质询这个方案."

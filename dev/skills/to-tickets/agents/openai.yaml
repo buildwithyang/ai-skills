@@ -1,0 +1,6 @@
+interface:
+  display_name: "To Tickets"
+  short_description: "将 formal Spec 拆分为 tracer-bullet ticket DAG"
+  default_prompt: "使用 $to-tickets 将这份 formal Spec 拆分为可独立验证的 tickets."
+policy:
+  allow_implicit_invocation: false
