@@ -11,6 +11,7 @@
 |       |-- domain-modeling/
 |       |-- grill-with-docs/
 |       |-- grilling/
+|       |-- shape-idea/
 |       |-- to-spec/
 |       `-- to-tickets/
 |-- life/
@@ -24,6 +25,7 @@
 |       |-- grill-with-docs -> ../../dev/skills/grill-with-docs
 |       |-- grilling -> ../../dev/skills/grilling
 |       |-- latest-news -> ../../life/skills/latest-news
+|       |-- shape-idea -> ../../dev/skills/shape-idea
 |       |-- to-spec -> ../../dev/skills/to-spec
 |       `-- to-tickets -> ../../dev/skills/to-tickets
 |-- .claude/
@@ -32,6 +34,7 @@
 |       |-- grill-with-docs -> ../../dev/skills/grill-with-docs
 |       |-- grilling -> ../../dev/skills/grilling
 |       |-- latest-news -> ../../life/skills/latest-news
+|       |-- shape-idea -> ../../dev/skills/shape-idea
 |       |-- to-spec -> ../../dev/skills/to-spec
 |       `-- to-tickets -> ../../dev/skills/to-tickets
 |-- LICENSES/
@@ -56,6 +59,7 @@
 - `grill-with-docs`: `dev/skills/grill-with-docs/`
 - `grilling`: `dev/skills/grilling/`
 - `latest-news`: `life/skills/latest-news/`
+- `shape-idea`: `dev/skills/shape-idea/`
 - `to-spec`: `dev/skills/to-spec/`
 - `to-tickets`: `dev/skills/to-tickets/`
 
@@ -103,4 +107,5 @@ Skill instructions.
 ## Upstream Sources
 
 - `dev/skills/grilling/`, `dev/skills/domain-modeling/`, `dev/skills/grill-with-docs/`, `dev/skills/to-spec/` 和 `dev/skills/to-tickets/` 基于 [mattpocock/skills](https://github.com/mattpocock/skills) 定制.
+- `dev/skills/shape-idea/` 从较早的个人 [buildwithyang/skills](https://github.com/buildwithyang/skills) revision `cc7b8f9c99fd531bd70353277da98e958812b251` 迁移并定制.
 - 上游版本和 MIT 许可证保存在 [`LICENSES/mattpocock-skills-MIT.txt`](./LICENSES/mattpocock-skills-MIT.txt).
