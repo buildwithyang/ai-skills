@@ -27,6 +27,7 @@ disable-model-invocation: true
 ## Slicing Rules
 
 - 优先按 end-to-end behavior 拆分, 不按 database, backend, frontend 或 tests 等 layer 水平拆分.
+- Wide refactor 不强制拆成 vertical slices. 使用 expand-contract, 让新旧 form 暂时并存, 按 blast radius 分批迁移 callers, 最后删除旧 form.
 - 每个 ticket 完成后必须保持 repository 可验证, 并产生可以观察的 incremental value 或 risk reduction.
 - 必要的 prefactoring 可以成为前置 ticket, 但必须明确它解除的 blocker 和验证方式.
 - ticket 大到无法在一个 fresh agent context 中完成时继续拆分. ticket 小到无法独立验证时合并到最近的 behavior slice.
@@ -64,8 +65,8 @@ disable-model-invocation: true
 
 ## Publishing Rules
 
-- 真实 issue tracker 优先使用 native dependency 或 blocking relationship. 不支持时在 ticket body 中记录 `Blocked by`.
-- Local destination 使用一个 ticket 一个文件, 并按 dependency order 使用稳定编号.
+- 真实 issue tracker 优先使用 native blocking relationship. 不支持时在 ticket body 中记录 `Blocked by`.
+- Local destination 中一个 ticket 对应一个文件, 按 dependency order 编号.
 - 只有项目已经定义 triage label 时才应用该 label.
 - 保留 source Spec 或 parent issue 的状态和内容, 除非用户另有明确要求.
 - 避免容易过期的 file paths 和完整 code snippets. Prototype 中表达 decision 所必需的最小 schema, state machine 或 type shape 可以保留并标记来源.
@@ -74,6 +75,5 @@ disable-model-invocation: true
 
 - 所有 In Scope requirement 都被覆盖, 且没有引入 Out of Scope work.
 - Blocking graph 无环, dependency edge 最小, 并存在可立即开始的 initial frontier.
-- 每个 ticket 都能独立验证并适合一个 fresh agent context.
 - Ticket 内容与 Spec, `CONTEXT.md`, ADR 和当前 codebase 一致.
-- 用户已确认 draft DAG, 所有 tickets 已发布, 且没有开始实现.
+- 用户已确认 draft DAG, 且所有 tickets 已发布.

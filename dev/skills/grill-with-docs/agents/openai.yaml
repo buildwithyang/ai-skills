@@ -1,6 +1,6 @@
 interface:
   display_name: "Grill With Docs"
-  short_description: "在 Plan mode 中对齐方案和 architecture decisions"
+  short_description: "质询方案并规划 Domain Model 文档更新"
   default_prompt: "使用 $grill-with-docs 质询这个方案并对齐 Domain Model 和 architecture decisions."
 policy:
   allow_implicit_invocation: false

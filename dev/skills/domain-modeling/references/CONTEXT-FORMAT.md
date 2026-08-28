@@ -15,7 +15,6 @@ _Avoid_: Purchase, Transaction
 ```
 
 - 每个 concept 只选择一个 canonical term. 用 `_Avoid_` 记录 ambiguous synonyms.
-- 英文技术术语或代码中的 domain name 更准确时保留英文.
 - 只记录当前业务 domain 特有的 concept. 排除 implementation detail, requirement, plan 和 architecture decision.
 - 如果存在 `CONTEXT-MAP.md`, 使用它定位 context. 否则使用 root `CONTEXT.md`.
 - 未确认的 proposal 和 question 不写入 glossary.

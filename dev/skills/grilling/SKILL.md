@@ -1,11 +1,9 @@
 ---
 name: grilling
-description: "Plan mode guard. 当用户明确要求 grilling, 质询或 pressure-test 方案, 或另一个 Skill 明确调用 grilling 时使用. 确保这些流程先进入原生 Plan mode 并应用个人规划偏好."
+description: "Plan mode guard. 仅在用户明确要求 grilling 或方案质询, 或另一个 Skill 明确调用时使用."
 ---
 
 # Grilling
-
-使用宿主原生 Plan mode 澄清重要决策. 这个 Skill 负责确认正确的工作模式并补充少量个人偏好, 不替代宿主自己的规划能力.
 
 ## Plan Mode Guard
 
@@ -23,7 +21,6 @@ description: "Plan mode guard. 当用户明确要求 grilling, 质询或 pressur
 - 每个问题都给出推荐答案和最重要的取舍.
 - 单文件或单命令即可确认的事实由当前 Agent 直接检查.
 - 涉及多文件, 多模块或关系追踪的调查委派给 sub-agent. sub-agent 只返回结论, 证据位置和仍不确定的点.
-- 调查尚未完成时, 继续处理不依赖该调查结果的问题.
 
 ## Completion
 

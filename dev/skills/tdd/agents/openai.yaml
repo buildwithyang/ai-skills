@@ -1,0 +1,4 @@
+interface:
+  display_name: "TDD"
+  short_description: "在已确认 Seam 上执行 Red-Green vertical slices"
+  default_prompt: "使用 $tdd 在已确认的 testing Seam 上实现这个 behavior."

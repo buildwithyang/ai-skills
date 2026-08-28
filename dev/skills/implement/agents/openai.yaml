@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implement"
+  short_description: "根据 Spec 或 tickets 完成实现, 验证, review 和 scoped commit"
+  default_prompt: "使用 $implement 实现这个 Spec 或 ticket."
+policy:
+  allow_implicit_invocation: false

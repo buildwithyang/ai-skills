@@ -11,7 +11,7 @@ description: "Domain Model discipline. 当用户需要校准 Ubiquitous Language
 
 ## Calibrate The Model
 
-- 检查现有 `CONTEXT-MAP.md`, `CONTEXT.md`, ADR 和相关代码. 区分 current behavior, proposed model 和 contradiction.
+- 检查现有 `CONTEXT-MAP.md`, `CONTEXT.md`, ADR 和相关代码. 区分 current behavior, proposed model 和冲突.
 - 将 ambiguous 或 overloaded term 收敛为 canonical term. 英文技术术语更准确时保留英文.
 - 使用 concrete scenario 检查 Bounded Context, ownership, lifecycle, state transition 和 invariant.
 - 发现模型与代码冲突时给出证据. 只询问会改变 boundary 或 decision 的问题.
@@ -21,7 +21,7 @@ description: "Domain Model discipline. 当用户需要校准 Ubiquitous Language
 确认 domain term 后, 按 [CONTEXT-FORMAT.md](./references/CONTEXT-FORMAT.md) 更新对应 `CONTEXT.md`.
 
 - `CONTEXT.md` 只保存 Ubiquitous Language 和 domain definition.
-- 文件按需创建. Plan mode 中将待写内容放入 plan, 进入可执行模式后再写入.
+- 文件按需创建.
 
 ## Record ADR
 

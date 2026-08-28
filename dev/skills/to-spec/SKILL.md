@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 ## Preconditions
 
-- 必须已有足够的 requirements context 或 decision-complete plan. 如果仍有会改变 scope, architecture 或 risk 的未决问题, 停止并建议先使用 `grill-with-docs`.
+- 必须已有 confirmed requirements 或 decision-complete plan. 如果仍有会改变 scope, architecture 或 risk 的未决问题, 停止并建议先使用 `grill-me`. 需要同步 Domain Model 文档时改用 `grill-with-docs`.
 - 查找项目已经约定的 Spec source of truth, 例如 issue tracker 或 repository path. 如果没有约定, 只询问用户选择一个 destination.
 - 只维护一份 formal Spec. 不同时创建互相同步的 tracker Spec 和 local Spec.
 
@@ -18,8 +18,8 @@ disable-model-invocation: true
 
 1. 检查当前 codebase, project instructions 和相关实现, 区分 verified facts, confirmed decisions 和 assumptions.
 2. 使用现有 `CONTEXT.md` vocabulary 并遵守相关 ADR. 如果需要改变 Domain Model 或 architecture decision, 停止并返回 `grill-with-docs` 或 `domain-modeling`.
-3. 确认 testing seams 已经由前序 plan 决定. 优先选择能够验证 external behavior 的最高稳定 seam. 只有 seam 选择会明显改变 architecture 或 verification cost 时才询问用户.
-4. 使用下面的结构编写 Spec. 如果发现阻止进入 `to-tickets` 的 unresolved decision, 不发布 Spec, 直接返回 blocker 和建议的前序 Skill.
+3. 确认 testing seams 已经由前序 plan 决定. 优先选择能够验证 external behavior 的最高层且稳定的 testing seam. 只有 seam 选择会明显改变 architecture 或 verification cost 时才询问用户.
+4. 使用下面的结构编写 Spec.
 5. 没有 blocker 时, 将 Spec 发布到已确认的 source of truth, 然后返回 Spec location 和关键 assumptions.
 
 ## Spec Structure

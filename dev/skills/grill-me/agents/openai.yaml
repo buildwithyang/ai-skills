@@ -1,0 +1,6 @@
+interface:
+  display_name: "Grill Me"
+  short_description: "通过严格追问打磨 product direction 或 plan"
+  default_prompt: "使用 $grill-me 严格质询这个 product direction 或 plan."
+policy:
+  allow_implicit_invocation: false

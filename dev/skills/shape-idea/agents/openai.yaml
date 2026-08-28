@@ -1,6 +1,6 @@
 interface:
   display_name: "Shape Idea"
-  short_description: "将模糊 product idea 澄清为明确方向"
-  default_prompt: "使用 $shape-idea 将这个模糊 product idea 整理为已确认的 product direction."
+  short_description: "初步澄清 product idea 并交给 Grill Me"
+  default_prompt: "使用 $shape-idea 对这个 product idea 进行初步 brainstorming."
 policy:
   allow_implicit_invocation: false

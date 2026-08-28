@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codebase Design"
+  short_description: "Deep Module vocabulary 和个人代码设计规范"
+  default_prompt: "使用 $codebase-design 设计这个 Module 的 Interface 和 Seam."
