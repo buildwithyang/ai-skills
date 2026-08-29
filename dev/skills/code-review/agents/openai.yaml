@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Review"
+  short_description: "按 requirements 和 engineering risk 审查 changes"
+  default_prompt: "使用 $code-review 审查当前 changes, 按 severity 返回可操作 findings."
