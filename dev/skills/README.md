@@ -2,6 +2,8 @@
 
 面向 Senior Developer 和 Software Architect 的软件开发, 调试, 测试和架构工作流.
 
+每个 repository 首次使用时, 运行一次 `setup-dev-workflow`, 配置 Formal Spec, Epic, Issues 和 workflow labels.
+
 默认 workflow:
 
 `shape-idea -> grill-me -> to-spec -> to-tickets -> implement -> code-review`
@@ -18,6 +20,7 @@
 - [grill-with-docs](./grill-with-docs/SKILL.md): 在 Plan mode 中组合 `grilling` 和 `domain-modeling`, 对齐方案和 architecture decisions.
 - [grilling](./grilling/SKILL.md): 检查原生 Plan mode 后质询关键方案决策.
 - [implement](./implement/SKILL.md): 根据 Spec 或 tickets 实现, review 并 commit.
+- [setup-dev-workflow](./setup-dev-workflow/SKILL.md): 为 repository 配置 Formal Spec, Epic, Issues 和 workflow labels.
 - [tdd](./tdd/SKILL.md): 在已确认的 testing Seam 上使用 Red-Green vertical slices 实现 behavior.
 - [to-spec](./to-spec/SKILL.md): 将已确认方案整理为唯一一份 formal Spec, 作为后续实现的 requirements source of truth.
 - [to-tickets](./to-tickets/SKILL.md): 将 formal Spec 拆分为可独立验证的 tracer-bullet ticket DAG.

@@ -27,8 +27,9 @@ Review 本身不修改, stage, commit 或 push. 用户明确要求修复时再�
 Requirements sources 按以下顺序查找:
 
 1. Calling Skill 或用户提供的 ticket, formal Spec, confirmed plan 和 amendments.
-2. 用户在当前 task 中明确说明的 behavior 和 constraints.
-3. Branch, commits 或 repository 中明确关联的 issue 和 Spec.
+2. `docs/agents/delivery-workflow.md` 中记录的 Formal Spec 和 Issue locations.
+3. 用户在当前 task 中明确说明的 behavior 和 constraints.
+4. Branch, commits 或 repository 中明确关联的 issue 和 Spec.
 
 没有可信 requirements source 时, 不阻塞 Engineering review. 将 Requirements 标记为 `Not assessed`, 不从 implementation 反推需求.
 

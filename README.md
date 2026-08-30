@@ -15,6 +15,7 @@
 |       |-- grill-with-docs/
 |       |-- grilling/
 |       |-- implement/
+|       |-- setup-dev-workflow/
 |       |-- shape-idea/
 |       |-- tdd/
 |       |-- to-spec/
@@ -34,6 +35,7 @@
 |       |-- grilling -> ../../dev/skills/grilling
 |       |-- implement -> ../../dev/skills/implement
 |       |-- latest-news -> ../../life/skills/latest-news
+|       |-- setup-dev-workflow -> ../../dev/skills/setup-dev-workflow
 |       |-- shape-idea -> ../../dev/skills/shape-idea
 |       |-- tdd -> ../../dev/skills/tdd
 |       |-- to-spec -> ../../dev/skills/to-spec
@@ -48,6 +50,7 @@
 |       |-- grilling -> ../../dev/skills/grilling
 |       |-- implement -> ../../dev/skills/implement
 |       |-- latest-news -> ../../life/skills/latest-news
+|       |-- setup-dev-workflow -> ../../dev/skills/setup-dev-workflow
 |       |-- shape-idea -> ../../dev/skills/shape-idea
 |       |-- tdd -> ../../dev/skills/tdd
 |       |-- to-spec -> ../../dev/skills/to-spec
@@ -78,6 +81,7 @@
 - `grilling`: `dev/skills/grilling/`
 - `implement`: `dev/skills/implement/`
 - `latest-news`: `life/skills/latest-news/`
+- `setup-dev-workflow`: `dev/skills/setup-dev-workflow/`
 - `shape-idea`: `dev/skills/shape-idea/`
 - `tdd`: `dev/skills/tdd/`
 - `to-spec`: `dev/skills/to-spec/`
@@ -126,6 +130,6 @@ Skill instructions.
 
 ## Upstream Sources
 
-- `dev/skills/code-review/`, `dev/skills/codebase-design/`, `dev/skills/grilling/`, `dev/skills/grill-me/`, `dev/skills/domain-modeling/`, `dev/skills/grill-with-docs/`, `dev/skills/implement/`, `dev/skills/tdd/`, `dev/skills/to-spec/` 和 `dev/skills/to-tickets/` 基于 [mattpocock/skills](https://github.com/mattpocock/skills) 定制.
+- `dev/skills/code-review/`, `dev/skills/codebase-design/`, `dev/skills/grilling/`, `dev/skills/grill-me/`, `dev/skills/domain-modeling/`, `dev/skills/grill-with-docs/`, `dev/skills/implement/`, `dev/skills/setup-dev-workflow/`, `dev/skills/tdd/`, `dev/skills/to-spec/` 和 `dev/skills/to-tickets/` 基于 [mattpocock/skills](https://github.com/mattpocock/skills) 定制.
 - `dev/skills/shape-idea/` 从较早的个人 [buildwithyang/skills](https://github.com/buildwithyang/skills) revision `cc7b8f9c99fd531bd70353277da98e958812b251` 迁移并定制.
 - 上游版本和 MIT 许可证保存在 [`LICENSES/mattpocock-skills-MIT.txt`](./LICENSES/mattpocock-skills-MIT.txt).

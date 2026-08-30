@@ -1,6 +1,6 @@
 Upstream project: https://github.com/mattpocock/skills
 Source revision: 6654f6b60cd9d5be8b54c6fafe44346dabeb3b76
-Adapted files: dev/skills/code-review/, dev/skills/codebase-design/, dev/skills/grilling/, dev/skills/grill-me/, dev/skills/domain-modeling/, dev/skills/grill-with-docs/, dev/skills/implement/, dev/skills/tdd/, dev/skills/to-spec/, dev/skills/to-tickets/
+Adapted files: dev/skills/code-review/, dev/skills/codebase-design/, dev/skills/grilling/, dev/skills/grill-me/, dev/skills/domain-modeling/, dev/skills/grill-with-docs/, dev/skills/implement/, dev/skills/setup-dev-workflow/, dev/skills/tdd/, dev/skills/to-spec/, dev/skills/to-tickets/
 Additional source project: https://github.com/buildwithyang/skills
 Additional source revision: cc7b8f9c99fd531bd70353277da98e958812b251
 Additional adapted files: dev/skills/shape-idea/

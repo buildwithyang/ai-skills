@@ -1,0 +1,6 @@
+interface:
+  display_name: "Setup Dev Workflow"
+  short_description: "配置 Formal Spec, Epic, Issues 和 workflow labels"
+  default_prompt: "使用 $setup-dev-workflow 配置这个 repository 的 delivery workflow."
+policy:
+  allow_implicit_invocation: false

@@ -11,7 +11,7 @@ disable-model-invocation: true
 ## Preconditions
 
 - 必须提供已确认的 formal Spec location. 如果只有 conversation 或 plan, 停止并建议先使用 `to-spec`.
-- 查找项目已经约定的 ticket destination, 例如 issue tracker 或 repository path. 如果没有约定, 只询问用户选择一个 destination.
+- 优先读取 `docs/agents/delivery-workflow.md` 中的 Issues, Labels 和 Relationships And State sections. 如果文件不存在, 再查找 repository 已有约定. 仍无法确认时, 只询问用户选择一个 destination, 并建议后续运行 `setup-dev-workflow` 持久化选择.
 - 拆票阶段不新增 product requirement 或 architecture decision. 发现缺口时返回 `to-spec` 或 `grill-with-docs`.
 
 ## Process
@@ -21,8 +21,8 @@ disable-model-invocation: true
 3. 将工作拆成 tracer-bullet vertical slices. 每个 slice 应形成一个窄而完整的 behavior path, 能独立验证, 并适合在一个 fresh agent context 中完成.
 4. 为每个 ticket 建立最小 blocking edges. 只记录真正阻止开始的 dependency, 保留能够并行推进的 frontier.
 5. 向用户展示 draft DAG. 每个 ticket 给出 title, requirement IDs, outcome, verification 和 blocked by. 只询问会改变 granularity, dependency 或 delivery risk 的问题.
-6. 用户确认后, 按 dependency order 发布到已约定的 destination. 一个 ticket 对应一个 issue 或一个 local file.
-7. 发布完成后返回 ticket locations, initial frontier 和 requirements coverage summary. 不开始实现.
+6. 用户确认后, 按配置创建或更新 Epic, 再按 dependency order 发布 tickets. 一个 ticket 对应一个 issue 或一个 local file.
+7. 将所有 tickets 关联到 Epic 和 Formal Spec. 发布完成后返回 Epic location, ticket locations, initial frontier 和 requirements coverage summary. 不开始实现.
 
 ## Slicing Rules
 
@@ -65,9 +65,13 @@ disable-model-invocation: true
 
 ## Publishing Rules
 
+- Epic 只汇总 delivery scope, progress 和 child tickets. 不复制 Formal Spec 内容.
+- GitHub 默认使用一个 tracking Issue 表示 Epic, 并应用 configured `epic` artifact role. Epic 不应用 `ready-for-agent`.
+- 每个 generated ticket 应用一个 configured category role 和 `ready-for-agent` state role. `ready-for-agent` 只表示无需继续 triage, blocking relationship 仍决定是否可以开始.
+- 创建 Issue 前验证 configured labels 已存在. 缺失时在任何 remote write 前停止并报告 external setup.
+- 优先使用 native sub-issues, 不可用时使用 checklist links.
 - 真实 issue tracker 优先使用 native blocking relationship. 不支持时在 ticket body 中记录 `Blocked by`.
 - Local destination 中一个 ticket 对应一个文件, 按 dependency order 编号.
-- 只有项目已经定义 triage label 时才应用该 label.
 - 保留 source Spec 或 parent issue 的状态和内容, 除非用户另有明确要求.
 - 避免容易过期的 file paths 和完整 code snippets. Prototype 中表达 decision 所必需的最小 schema, state machine 或 type shape 可以保留并标记来源.
 
@@ -76,4 +80,6 @@ disable-model-invocation: true
 - 所有 In Scope requirement 都被覆盖, 且没有引入 Out of Scope work.
 - Blocking graph 无环, dependency edge 最小, 并存在可立即开始的 initial frontier.
 - Ticket 内容与 Spec, `CONTEXT.md`, ADR 和当前 codebase 一致.
+- Epic 和 tickets 已按 configured relationship 关联, 且都能追溯到 Formal Spec.
+- Epic 和 tickets 使用 configured canonical role mapping, 且没有 conflicting category 或 state labels.
 - 用户已确认 draft DAG, 且所有 tickets 已发布.
