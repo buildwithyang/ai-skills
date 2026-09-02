@@ -14,7 +14,7 @@ disable-model-invocation: true
 2. 每轮只询问一个会明显改变 product direction 的决策, 直到 target user, problem, desired outcome, success evidence, constraints 和 non-goals 清晰. 提供 concrete choices, 并在有依据时给出 recommended answer.
 3. 重要选择存在真实 trade-off 时, 给出 2-3 个 viable directions, 推荐项放在最前面. 说明 user-facing trade-off, 优先选择能够实现已确认 outcome 的最小方向, 不为常规细节制造 alternatives.
 4. 输出 conversation 内的 Idea Brief, 请用户确认或修正. 未确认时继续澄清, 不进入 design.
-5. 用户确认后停止, 并提示用户在同一 conversation 中显式调用 `grill-me`. 后续代码库设计需要同步 Domain Model, `CONTEXT.md` 或 ADR 时, 改用 `grill-with-docs`. 不代替用户调用下一个 Skill.
+5. 用户确认后完成 Idea Brief.
 
 ## Idea Brief
 
@@ -29,3 +29,10 @@ disable-model-invocation: true
 - Idea Brief 只保留在当前 conversation, 不写入文件.
 - 不创建 Spec, ADR, plan, ticket 或 implementation artifact.
 - 不决定 architecture, API, schema, module, file 或 testing strategy.
+
+## Next Skills
+
+结束时输出当前适用的 1-3 个 next skills. 存在可用项时标记一个 Recommended, 没有时输出 `None`:
+
+- `$grill-me`: 继续质询已确认的 product direction.
+- `$grill-with-docs`: 后续代码库方案需要同步 Domain Model, `CONTEXT.md` 或 ADR.

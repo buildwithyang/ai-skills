@@ -67,3 +67,12 @@ Provider-specific missing information:
 ## Completion
 
 返回 configuration path, 两个 selected providers, Epic representation, label mapping, access verification status 和仍需人工完成的 external setup. 不开始 `to-spec` 或 `to-tickets`.
+
+## Next Skills
+
+结束时从以下选项中输出当前适用的 1-3 个 next skills. 存在可用项时标记一个 Recommended, 没有时输出 `None`:
+
+- `$shape-idea`: product direction 尚未成形.
+- `$grill-me`: 已有初步方向, 但方案尚未确认.
+- `$grill-with-docs`: 方案需要 Domain Model 或 architecture decision alignment.
+- `$to-spec`: 已有 confirmed requirements 或 decision-complete plan.

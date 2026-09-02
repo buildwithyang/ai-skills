@@ -83,3 +83,12 @@ disable-model-invocation: true
 - Epic 和 tickets 已按 configured relationship 关联, 且都能追溯到 Formal Spec.
 - Epic 和 tickets 使用 configured canonical role mapping, 且没有 conflicting category 或 state labels.
 - 用户已确认 draft DAG, 且所有 tickets 已发布.
+
+## Next Skills
+
+结束时从以下选项中输出当前适用的 1-3 个 next skills. 存在可用项时标记一个 Recommended, 没有时输出 `None`:
+
+- `$implement`: 已有用户选定的 ready ticket.
+- `$to-spec`: requirements coverage 或 Spec 需要修正.
+- `$grill-with-docs`: 发现新的 domain 或 architecture decision.
+- `$setup-dev-workflow`: Issue provider, relationship 或 label configuration 尚未持久化.

@@ -64,3 +64,12 @@ Prototype 产生的 state machine, schema 或 type shape 如果比 prose 更准�
 - Requirements 能被 `to-tickets` 拆分并追踪回稳定 ID.
 - Spec 与 `CONTEXT.md`, ADR 和当前 codebase 不冲突.
 - 用户可以明确确认这份 Spec 是后续实现的唯一 requirements source of truth.
+
+## Next Skills
+
+结束时从以下选项中输出当前适用的 1-3 个 next skills. 存在可用项时标记一个 Recommended, 没有时输出 `None`:
+
+- `$to-tickets`: formal Spec 已确认, 可以拆分 delivery tickets.
+- `$grill-me`: 仍有会改变 scope 或 requirements 的未决问题.
+- `$grill-with-docs`: 仍需校准 Domain Model 或 architecture decisions.
+- `$setup-dev-workflow`: Formal Spec 或 Issue provider configuration 尚未持久化.
