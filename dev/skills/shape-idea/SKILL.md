@@ -12,7 +12,7 @@ disable-model-invocation: true
 
 1. 从 target user, recurring pain 和 desired outcome 建立 hypothesis. 没有具体 idea 时, 从用户熟悉的 domain, reachable users, unique assets 和 constraints 寻找机会.
 2. 每轮先给出简短判断, 再问一个最能改变方向的问题. 指出矛盾, 并直接检查 available context 中已有的事实.
-3. 检验 problem evidence, frequency, severity, current workaround, switching trigger 和 buyer.
+3. 检验 problem evidence, frequency, severity, current workaround, switching trigger 和 buyer. 必要时追问 `why now` 和 `why us`.
 4. 提出 2-3 个不同方向, 比较 problem strength, user access, differentiation, adoption, viability 和 strategic fit.
 5. 推荐一个方向, 说明 narrow wedge, 选择理由, riskiest assumption 和会改变推荐的新证据. 证据不足时输出 ranked hypotheses 和 cheapest credible validation.
 
