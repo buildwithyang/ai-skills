@@ -14,7 +14,7 @@
 
 ## Skills
 
-- [shape-idea](./shape-idea/SKILL.md): 对模糊 product idea 进行初步 brainstorming, 然后交给 `grill-me`.
+- [shape-idea](./shape-idea/SKILL.md): 通过 product discovery 和 opportunity trade-offs, 共同探索并收敛值得投入的 product direction.
 - [codebase-design](./codebase-design/SKILL.md): 使用 Deep Module vocabulary 设计 Interface 和 Seam, 并维护个人代码设计规范.
 - [code-review](./code-review/SKILL.md): 从 Requirements 和 Engineering 两个独立 axis 审查 changes, 并按 severity 返回 findings.
 - [domain-modeling](./domain-modeling/SKILL.md): 校准 Domain Model, Bounded Context 和 Ubiquitous Language, 并按需维护 `CONTEXT.md` 和 ADR.

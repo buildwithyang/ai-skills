@@ -1,38 +1,38 @@
 ---
 name: shape-idea
-description: "通过初步 brainstorming 将模糊 product idea 澄清为已确认的 product direction, 然后交给 grill-me."
+description: "与用户从 first principles 探索, 比较并收敛值得投入的 product direction."
 disable-model-invocation: true
 ---
 
 # Shape Idea
 
-对模糊 product idea 进行初步 brainstorming, 整理为用户能够解释和捍卫的 product direction. 只决定应该存在什么以及为什么, 不决定如何实现.
+作为主动的 product thinking partner, 与用户一起判断应该为谁解决什么问题, 以及为什么值得做. 提出观点并挑战薄弱假设, 不只记录和复述. 在获得真实证据前, product direction 只是 hypothesis. 不让当前实现限制产品方向.
 
 ## Process
 
-1. 用一句话重述当前 hypothesis, 包含 target user, problem 和 desired outcome. 对现有产品先检查可用的 high-level product context, 不向用户询问可以直接确认的事实.
-2. 每轮只询问一个会明显改变 product direction 的决策, 直到 target user, problem, desired outcome, success evidence, constraints 和 non-goals 清晰. 提供 concrete choices, 并在有依据时给出 recommended answer.
-3. 重要选择存在真实 trade-off 时, 给出 2-3 个 viable directions, 推荐项放在最前面. 说明 user-facing trade-off, 优先选择能够实现已确认 outcome 的最小方向, 不为常规细节制造 alternatives.
-4. 输出 conversation 内的 Idea Brief, 请用户确认或修正. 未确认时继续澄清, 不进入 design.
-5. 用户确认后完成 Idea Brief.
+1. 从 target user, recurring pain 和 desired outcome 建立 hypothesis. 没有具体 idea 时, 从用户熟悉的 domain, reachable users, unique assets 和 constraints 寻找机会.
+2. 每轮先给出简短判断, 再问一个最能改变方向的问题. 指出矛盾, 并直接检查 available context 中已有的事实.
+3. 检验 problem evidence, frequency, severity, current workaround, switching trigger 和 buyer.
+4. 提出 2-3 个不同方向, 比较 problem strength, user access, differentiation, adoption, viability 和 strategic fit.
+5. 推荐一个方向, 说明 narrow wedge, 选择理由, riskiest assumption 和会改变推荐的新证据. 证据不足时输出 ranked hypotheses 和 cheapest credible validation.
 
-## Idea Brief
+## Direction Brief
 
-- Problem 和 target user.
-- Desired outcome 和 success evidence.
-- Chosen product direction.
-- Constraints 和 non-goals.
-- 3-7 个 core user stories, 使用 `As a <user>, I want <capability>, so that <outcome>.` 格式, 覆盖主要价值和重要 exceptions.
+用户准备收敛时, 输出:
+
+- Product thesis, target user, problem, evidence 和 alternatives.
+- Chosen direction, product promise, narrow wedge, adoption path 和 value capture.
+- Critical assumptions, validation, success or kill criteria, non-goals 和 3-5 个 core user stories.
+
+请用户确认. 确认后才称为 chosen product direction.
 
 ## Boundaries
 
-- Idea Brief 只保留在当前 conversation, 不写入文件.
-- 不创建 Spec, ADR, plan, ticket 或 implementation artifact.
-- 不决定 architecture, API, schema, module, file 或 testing strategy.
+Direction Brief 只保留在当前 conversation. 不创建文件, Spec, plan, ticket 或 implementation design.
 
 ## Next Skills
 
 结束时输出当前适用的 1-3 个 next skills. 存在可用项时标记一个 Recommended, 没有时输出 `None`:
 
-- `$grill-me`: 继续质询已确认的 product direction.
+- `$grill-me`: 对 chosen product direction 继续进行严格质询.
 - `$grill-with-docs`: 后续代码库方案需要同步 Domain Model, `CONTEXT.md` 或 ADR.

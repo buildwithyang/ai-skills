@@ -1,6 +1,6 @@
 interface:
   display_name: "Shape Idea"
-  short_description: "初步澄清 product idea 并交给 Grill Me"
-  default_prompt: "使用 $shape-idea 对这个 product idea 进行初步 brainstorming."
+  short_description: "共同探索, 评估并收敛值得投入的产品方向"
+  default_prompt: "使用 $shape-idea 和我讨论这个产品机会, 引导我找到值得投入的 product direction."
 policy:
   allow_implicit_invocation: false
