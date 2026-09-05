@@ -12,7 +12,7 @@ disable-model-invocation: true
 
 实现期间定期运行 typecheck 和 focused test files. 最后运行 full test suite.
 
-完成后调用 `code-review` 审查本次工作.
+完成后调用 `code-review` 审查本次工作. 根据审查结果完成本次范围内的必要修复, 重新验证并复查受影响的变更.
 
 只将本次工作 commit 到当前 branch.
 

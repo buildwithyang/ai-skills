@@ -7,14 +7,14 @@ description: "Domain Model discipline. 当用户需要校准 Ubiquitous Language
 
 ## Purpose
 
-对齐 requirements 背后的 domain meaning, boundaries 和 architecture decisions. `CONTEXT.md` 和 ADR 是 alignment artifacts, requirements 的 source of truth 仍是 Spec.
+对齐 requirements 背后的业务含义, boundaries 和 architecture decisions. `CONTEXT.md` 记录 Bounded Context 的职责和业务术语. ADR 记录重要 architecture decision 及其原因和取舍. Requirements 的 source of truth 仍是 Spec.
 
-## Calibrate The Model
+## Align The Domain Model
 
-- 检查现有 `CONTEXT-MAP.md`, `CONTEXT.md`, ADR 和相关代码. 区分 current behavior, proposed model 和冲突.
-- 将 ambiguous 或 overloaded term 收敛为 canonical term. 英文技术术语更准确时保留英文.
-- 使用 concrete scenario 检查 Bounded Context, ownership, lifecycle, state transition 和 invariant.
-- 发现模型与代码冲突时给出证据. 只询问会改变 boundary 或 decision 的问题.
+- 检查现有 `CONTEXT-MAP.md`, `CONTEXT.md`, ADR 和相关代码. 说明 current behavior 是什么, proposed model 准备改变什么, 以及两者的差异.
+- 同一概念有多个名称, 或同一名称表示多个概念时, 选择一个 canonical term. 英文技术术语更准确时保留英文.
+- 使用具体业务场景检查 Bounded Context, ownership, lifecycle, state transition 和 invariant 是否合理, 即谁负责什么, 对象如何变化, 哪些业务规则必须始终成立.
+- 发现 Domain Model 与代码行为不一致时给出证据. 只询问会改变 boundary 或 architecture decision 的问题.
 
 ## Maintain CONTEXT.md
 

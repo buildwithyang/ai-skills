@@ -22,7 +22,7 @@ description: "Test-Driven Development. 当用户明确要求 test-first, Red-Gre
 4. 再次运行 focused test 和受影响的 nearby tests, 确认当前 slice green.
 5. Source 提供 requirement ID 时记录对应关系, 然后选择下一个 slice 重复 cycle.
 
-Red-Green cycle 不包含 refactor. 结构调整留给 `code-review`. Interface 或 Seam 需要改变时调用 `codebase-design`.
+Red-Green cycle 不包含 refactor. 后续由 `code-review` 评估结构调整, `implement` 执行修复和验证. 需要改变 Interface 或 Seam 时, 先调用 `codebase-design`.
 
 ## Test Quality
 

@@ -16,7 +16,7 @@
 
 - [shape-idea](./shape-idea/SKILL.md): 通过 product discovery 和 opportunity trade-offs, 共同探索并收敛值得投入的 product direction.
 - [codebase-design](./codebase-design/SKILL.md): 使用 Deep Module vocabulary 设计 Interface 和 Seam, 并维护个人代码设计规范.
-- [code-review](./code-review/SKILL.md): 从 Requirements 和 Engineering 两个独立 axis 审查 changes, 并按 severity 返回 findings.
+- [code-review](./code-review/SKILL.md): 对照已确认需求和项目约定审查变更, 将问题和必要的 refactor 建议交回调用方.
 - [domain-modeling](./domain-modeling/SKILL.md): 校准 Domain Model, Bounded Context 和 Ubiquitous Language, 并按需维护 `CONTEXT.md` 和 ADR.
 - [grill-me](./grill-me/SKILL.md): 调用 `grilling`, 通过严格追问打磨已经初步成形的 product direction, plan 或 design.
 - [grill-with-docs](./grill-with-docs/SKILL.md): 组合 `grilling` 和 `domain-modeling`, 对齐方案和 architecture decisions.
