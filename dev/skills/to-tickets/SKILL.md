@@ -8,11 +8,13 @@ disable-model-invocation: true
 
 将唯一 formal Spec 拆分为可执行的 ticket DAG. 每个 ticket 是可独立验证的 tracer bullet, 并声明真实的 blocking edges.
 
+文档和交流中统一使用 `ticket`, 不使用 "票", "拆票" 或以 "task / 任务" 替代. 涉及 provider 原生对象时保留 `Issue` 等正式名称.
+
 ## Preconditions
 
 - 必须提供已确认的 formal Spec location. 如果只有 conversation 或 plan, 停止并建议先使用 `to-spec`.
 - 优先读取 `docs/agents/delivery-workflow.md` 中的 Issues, Labels 和 Relationships And State sections. 如果文件不存在, 再查找 repository 已有约定. 仍无法确认时, 只询问用户选择一个 destination, 并建议后续运行 `setup-dev-workflow` 持久化选择.
-- 拆票阶段不新增 product requirement 或 architecture decision. 发现缺口时返回 `to-spec` 或 `grill-with-docs`.
+- 拆分 ticket 时不新增 product requirement 或 architecture decision. 发现缺口时返回 `to-spec` 或 `grill-with-docs`.
 
 ## Process
 
