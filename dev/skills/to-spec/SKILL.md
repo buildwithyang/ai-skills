@@ -1,24 +1,30 @@
 ---
 name: to-spec
-description: "将已确认的 conversation 或 decision-complete plan 整理为唯一一份 formal Spec. 不重新进行需求访谈."
+description: "将已确认的 conversation 或 plan 整理为按功能独立维护的产品 Spec. 不重新访谈或编写实现设计."
 disable-model-invocation: true
 ---
 
 # To Spec
 
-将当前 conversation, 已确认 plan 和 codebase facts 综合为唯一一份 formal Spec. 只做 synthesis, 不重新 grilling 用户.
+将当前 conversation 和已确认 plan 综合为产品 Spec, 定义要解决的问题, 产品行为, 业务规则和验收条件. 代码仅用于核实上下文, 不把代码现状写进产品文档. 只做 synthesis, 不重新 grilling 用户.
 
 ## Preconditions
 
 - 必须已有 confirmed requirements 或 decision-complete plan. 如果仍有会改变 scope, architecture 或 risk 的未决问题, 停止并建议先使用 `grill-me`. 需要同步 Domain Model 文档时改用 `grill-with-docs`.
 - 优先读取 `docs/agents/delivery-workflow.md` 中的 Formal Spec section. 如果文件不存在, 再查找 repository 已有约定. 仍无法确认时, 只询问用户选择一个 destination, 并建议后续运行 `setup-dev-workflow` 持久化选择.
-- 只维护一份 formal Spec. 不同时创建互相同步的 tracker Spec 和 local Spec.
+- 每个独立功能维护一份 formal Spec, 一个项目可以有多份. 不把新功能强行并入已有功能的 Spec, 也不为同一功能维护互相同步的 tracker / local 副本.
+
+## Numbering
+
+- 产品文档编号在项目内递增, 例如 `0001-account-workflow.md`, `0002-account-mailbox.md`.
+- 每份 Spec 内部独立从 `REQ-001` 编号, 不接续其他 Spec 的 REQ 序号. 不同 Spec 可以同时拥有 `REQ-001`.
+- 同一 Spec 后续修订保持已有 REQ ID 稳定. 跨文档引用使用 `Spec 0002 / REQ-001` 和链接, 不能仅用裸 REQ ID 判断归属.
 
 ## Process
 
-1. 检查当前 codebase, project instructions 和相关实现, 区分 verified facts, confirmed decisions 和 assumptions.
+1. 按需检查 project instructions 和相关实现, 核实已确认需求的上下文与依赖. 调查结果用于判断, 不记录技术栈清单, 代码快照或已实现 / 未实现状态.
 2. 使用现有 `CONTEXT.md` vocabulary 并遵守相关 ADR. 如果需要改变 Domain Model 或 architecture decision, 停止并返回 `grill-with-docs` 或 `domain-modeling`.
-3. 确认 testing seams 已经由前序 plan 决定. 优先选择能够验证 external behavior 的最高层且稳定的 testing seam. 只有 seam 选择会明显改变 architecture 或 verification cost 时才询问用户.
+3. 从已确认行为提取成功, 失败和边界场景, 定义可观察的验收结果.
 4. 使用下面的结构编写 Spec.
 5. 没有 blocker 时, 将 Spec 发布到已确认的 source of truth, 然后返回 Spec location 和关键 assumptions.
 
@@ -42,28 +48,28 @@ disable-model-invocation: true
 
 ### Requirements
 
-使用稳定 ID, 例如 `REQ-001`. 每项 requirement 必须 observable, testable, 并说明正常行为和关键 failure behavior.
+按本文 Numbering 规则使用文档内稳定 ID. 每项 requirement 必须 observable, testable, 并说明正常行为和关键 failure behavior.
 
-### Implementation Decisions
+### Business Rules And Dependencies
 
-记录已经确认的 module boundaries, interfaces, API contracts, data model, migration strategy 和 operational constraints. 不写容易过期的具体 file paths 或完整 code snippets.
+按需记录业务不变量, 状态转换和对其他产品能力的依赖; 术语引用 CONTEXT.md, 跨功能规则引用所属 Spec. 简单功能无需重复 Requirements.
 
-Prototype 产生的 state machine, schema 或 type shape 如果比 prose 更准确, 可以只保留表达 decision 所需的最小片段, 并标记来源.
+不设置 Implementation Decisions 或代码事实章节, 不记录技术栈, 模块调用关系, API / SQL / type shape, 数据库迁移, 库版本或当前测试实现. 必要的实现设计属于实施计划或 ADR, 本 skill 不另行生成这些文档. 用户明确要求的技术兼容性只写成可验收的产品约束.
 
-### Testing Decisions
+### Acceptance Criteria
 
-记录 testing seams, acceptance coverage, failure cases 和可复用的 existing test patterns. 测试 external behavior, 不绑定内部实现细节.
+描述各角色可观察的成功结果, failure cases 和边界条件, 映射到本 Spec 的 REQ ID. 不记录测试工具, 现有 test patterns 或某次运行是否通过.
 
 ### Constraints And Assumptions
 
-明确 permission, compatibility, performance, security, rollout 和 operational assumptions.
+明确影响产品行为的 permission, compatibility, performance 和 security 约束及尚未验证的产品假设. 不混入部署步骤, 临时环境状态或调研过程记录.
 
 ## Completion Gate
 
-- Spec 中不存在隐藏的 product 或 architecture decision.
-- Requirements 能被 `to-tickets` 拆分并追踪回稳定 ID.
-- Spec 与 `CONTEXT.md`, ADR 和当前 codebase 不冲突.
-- 用户可以明确确认这份 Spec 是后续实现的唯一 requirements source of truth.
+- Spec 中不存在隐藏的 product decision 或实现方案, 不记录容易过期的代码现状.
+- Requirements 能被 `to-tickets` 拆分并追踪回 `Spec + REQ ID`, 文档编号与文档内编号各自正确.
+- Spec 与 `CONTEXT.md`, 相关 ADR 和已确认需求一致; 新需求与当前实现不同是正常情况, 不将当前实现当作产品约束.
+- 用户可以明确确认这份 Spec 是该功能后续实现的唯一 requirements source of truth.
 
 ## Next Skills
 
