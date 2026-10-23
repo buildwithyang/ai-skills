@@ -19,7 +19,7 @@ disable-model-invocation: true
 - Formal Spec 使用 tracked Markdown, 放在 `docs/specs/<feature>.md`.
 - Issues 使用当前 GitHub repository 的 GitHub Issues.
 - 一个 delivery scope 使用一个 GitHub tracking Issue 表示 Epic. Implementation issues 通过 native sub-issues 关联, 不可用时使用 checklist links.
-- Label vocabulary 使用 `type:epic`, `bug`, `enhancement`, `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human` 和 `wontfix`.
+- Label vocabulary 使用 `type:epic`, `bug`, `enhancement`, `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `deferred` 和 `wontfix`.
 - ADR 保存在 repository, 继续由 `domain-modeling` 管理, 不复制到 Epic 或 Issues.
 
 不得仅根据 repository host 或 existing convention 推断用户已经接受推荐方案. GitHub remote 或 access 无法确认时, 在询问中说明 blocker, 不静默切换 provider.

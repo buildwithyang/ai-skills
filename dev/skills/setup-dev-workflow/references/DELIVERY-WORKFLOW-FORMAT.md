@@ -40,6 +40,7 @@
 | State | `needs-info` | `needs-info` | Waiting for reporter information |
 | State | `ready-for-agent` | `ready-for-agent` | Fully specified and needs no further triage |
 | State | `ready-for-human` | `ready-for-human` | Requires human implementation or judgment |
+| State | `deferred` | `deferred` | Intentionally postponed, may be resumed later |
 | State | `wontfix` | `wontfix` | Will not be actioned |
 
 ## Relationships And State
@@ -58,6 +59,7 @@
 - Epic 使用 artifact role, 不使用 `ready-for-agent`.
 - 每个 work ticket 最多一个 category role 和一个 state role. Skills 使用 canonical role, 再通过 mapping 查找 tracker label.
 - `ready-for-agent` 表示不需要继续 triage, 不代表 blocker 已解除. Execution 仍需检查 blocking relationship.
+- `deferred` 表示主动暂缓, Issue 保持 open, 不进入可执行 frontier. 在 ticket 中记录暂缓原因和恢复条件, 恢复时根据当前信息重新选择 state role. 依赖阻塞仍由 blocking relationship 表达, 暂缓不解除下游 blocker, 也不改变 Spec scope 或 requirement coverage.
 - Issue 内容必须引用 covered requirement IDs.
 - Provider 不支持 native blocking relationship 时, 使用 documented fallback, 不发明隐式 dependency.
 ```

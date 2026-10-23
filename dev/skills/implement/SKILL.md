@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 实现用户在 Spec 或 tickets 中描述的工作.
 
+根据 ticket 选择实现工作时, 按 `docs/agents/delivery-workflow.md` 的 label mapping 识别 state role, 排除 `deferred` 及存在未解除 blocker 的 tickets. 用户明确要求恢复暂缓的 ticket 时, 先重新评估 readiness 并更新 state role.
+
 实现代码涉及 Module design 时, 调用 `codebase-design`, 应用 Deep Module design 和个人代码设计规范.
 
 尽量调用 `tdd`, 在 pre-agreed Seams 上实现 behavior.

@@ -59,7 +59,7 @@ disable-model-invocation: true
 
 ### Blocked By
 
-列出真实阻塞本 ticket 开始的 ticket identifiers. 没有 blocker 时标记为 initial frontier.
+列出真实阻塞本 ticket 开始的 ticket identifiers. 没有未解除的 blocker 且 state 为 `ready-for-agent` 时标记为 initial frontier.
 
 ### Architecture Constraints
 
@@ -69,7 +69,7 @@ disable-model-invocation: true
 
 - Epic 只汇总 delivery scope, progress 和 child tickets. 不复制 Formal Spec 内容.
 - GitHub 默认使用一个 tracking Issue 表示 Epic, 并应用 configured `epic` artifact role. Epic 不应用 `ready-for-agent`.
-- 每个 generated ticket 应用一个 configured category role 和 `ready-for-agent` state role. `ready-for-agent` 只表示无需继续 triage, blocking relationship 仍决定是否可以开始.
+- 每个新建 ticket 默认应用一个 configured category role 和 `ready-for-agent` state role. 用户明确暂缓的 ticket 使用 `deferred`, 更新已有 ticket 时保留其 `deferred` 状态, 除非用户要求恢复. `ready-for-agent` 只表示无需继续 triage, blocking relationship 仍决定是否可以开始.
 - 创建 Issue 前验证 configured labels 已存在. 缺失时在任何 remote write 前停止并报告 external setup.
 - 优先使用 native sub-issues, 不可用时使用 checklist links.
 - 真实 issue tracker 优先使用 native blocking relationship. 不支持时在 ticket body 中记录 `Blocked by`.
@@ -80,7 +80,7 @@ disable-model-invocation: true
 ## Completion Gate
 
 - 所有 In Scope requirement 都被覆盖, 且没有引入 Out of Scope work.
-- Blocking graph 无环, dependency edge 最小, 并存在可立即开始的 initial frontier.
+- Blocking graph 无环, dependency edge 最小. Initial frontier 只包含可立即开始的 tickets, 排除 `deferred` 及存在未解除 blocker 的 tickets. 若暂缓导致 frontier 为空, 明确报告原因和恢复条件.
 - Ticket 内容与 Spec, `CONTEXT.md`, ADR 和当前 codebase 一致.
 - Epic 和 tickets 已按 configured relationship 关联, 且都能追溯到 Formal Spec.
 - Epic 和 tickets 使用 configured canonical role mapping, 且没有 conflicting category 或 state labels.
