@@ -1,0 +1,5 @@
+interface:
+  display_name: "Delegate"
+  short_description: "Claude 拆解和 review, 本地 Codex CLI 执行"
+policy:
+  allow_implicit_invocation: false

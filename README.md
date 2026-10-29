@@ -25,6 +25,7 @@
 |       `-- latest-news/
 |-- productivity/
 |   `-- skills/                 Agent workflow and productivity skills
+|       |-- delegate/
 |       `-- handoff/
 |-- work/
 |   `-- skills/                 Work and domain skills
@@ -32,6 +33,7 @@
 |   `-- skills/                 Codex discovery index
 |       |-- code-review -> ../../dev/skills/code-review
 |       |-- codebase-design -> ../../dev/skills/codebase-design
+|       |-- delegate -> ../../productivity/skills/delegate
 |       |-- domain-modeling -> ../../dev/skills/domain-modeling
 |       |-- grill-me -> ../../dev/skills/grill-me
 |       |-- grill-with-docs -> ../../dev/skills/grill-with-docs
@@ -48,6 +50,7 @@
 |   `-- skills/                 Claude Code discovery index
 |       |-- code-review -> ../../dev/skills/code-review
 |       |-- codebase-design -> ../../dev/skills/codebase-design
+|       |-- delegate -> ../../productivity/skills/delegate
 |       |-- domain-modeling -> ../../dev/skills/domain-modeling
 |       |-- grill-me -> ../../dev/skills/grill-me
 |       |-- grill-with-docs -> ../../dev/skills/grill-with-docs
@@ -81,6 +84,7 @@
 
 - `code-review`: `dev/skills/code-review/`
 - `codebase-design`: `dev/skills/codebase-design/`
+- `delegate`: `productivity/skills/delegate/`
 - `domain-modeling`: `dev/skills/domain-modeling/`
 - `grill-me`: `dev/skills/grill-me/`
 - `grill-with-docs`: `dev/skills/grill-with-docs/`
