@@ -132,6 +132,14 @@ Skill instructions.
 
 新增, 移动或删除 Skill 后都需要运行该脚本.
 
+如果需要在其他项目中也能使用这些 Skill, 加上 `--global`:
+
+```bash
+./scripts/sync-skill-links.sh --global
+```
+
+它会额外把绝对路径软链接同步到 `~/.claude/skills/` (Claude Code) 和 `~/.codex/skills/` (Codex), 并清理指向本仓库但已失效的全局链接. 全局目录中的其他 Skill 不受影响.
+
 ## Constraints
 
 - 不要直接在 `.agents/skills/` 或 `.claude/skills/` 下创建真实 Skill 目录.
