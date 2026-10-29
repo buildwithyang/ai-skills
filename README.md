@@ -23,6 +23,9 @@
 |-- life/
 |   `-- skills/                 Personal and daily-life skills
 |       `-- latest-news/
+|-- productivity/
+|   `-- skills/                 Agent workflow and productivity skills
+|       `-- handoff/
 |-- work/
 |   `-- skills/                 Work and domain skills
 |-- .agents/
@@ -33,6 +36,7 @@
 |       |-- grill-me -> ../../dev/skills/grill-me
 |       |-- grill-with-docs -> ../../dev/skills/grill-with-docs
 |       |-- grilling -> ../../dev/skills/grilling
+|       |-- handoff -> ../../productivity/skills/handoff
 |       |-- implement -> ../../dev/skills/implement
 |       |-- latest-news -> ../../life/skills/latest-news
 |       |-- setup-dev-workflow -> ../../dev/skills/setup-dev-workflow
@@ -48,6 +52,7 @@
 |       |-- grill-me -> ../../dev/skills/grill-me
 |       |-- grill-with-docs -> ../../dev/skills/grill-with-docs
 |       |-- grilling -> ../../dev/skills/grilling
+|       |-- handoff -> ../../productivity/skills/handoff
 |       |-- implement -> ../../dev/skills/implement
 |       |-- latest-news -> ../../life/skills/latest-news
 |       |-- setup-dev-workflow -> ../../dev/skills/setup-dev-workflow
@@ -67,6 +72,7 @@
 
 - `dev/skills/<skill-name>/`
 - `life/skills/<skill-name>/`
+- `productivity/skills/<skill-name>/`
 - `work/skills/<skill-name>/`
 
 `.agents/skills/` 和 `.claude/skills/` 是由软链接组成的发现索引. 它们不是 Skill 源码目录.
@@ -79,6 +85,7 @@
 - `grill-me`: `dev/skills/grill-me/`
 - `grill-with-docs`: `dev/skills/grill-with-docs/`
 - `grilling`: `dev/skills/grilling/`
+- `handoff`: `productivity/skills/handoff/`
 - `implement`: `dev/skills/implement/`
 - `latest-news`: `life/skills/latest-news/`
 - `setup-dev-workflow`: `dev/skills/setup-dev-workflow/`

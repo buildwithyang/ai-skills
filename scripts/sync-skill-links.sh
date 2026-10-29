@@ -2,7 +2,7 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
-categories=(dev life work)
+categories=(dev life productivity work)
 destinations=("$repo_root/.agents/skills" "$repo_root/.claude/skills")
 skill_names=()
 skill_sources=()
@@ -37,7 +37,7 @@ for destination in "${destinations[@]}"; do
     if [ -L "$target" ]; then
       existing_target="$(readlink "$target")"
       case "$existing_target" in
-        ../../dev/skills/*|../../life/skills/*|../../work/skills/*) ;;
+        ../../dev/skills/*|../../life/skills/*|../../productivity/skills/*|../../work/skills/*) ;;
         *)
           echo "error: refusing to replace unmanaged symlink: $target" >&2
           exit 1
@@ -57,7 +57,7 @@ for destination in "${destinations[@]}"; do
     existing_target="$(readlink "$target")"
 
     case "$existing_target" in
-      ../../dev/skills/*|../../life/skills/*|../../work/skills/*)
+      ../../dev/skills/*|../../life/skills/*|../../productivity/skills/*|../../work/skills/*)
         if [ ! -e "$target/SKILL.md" ]; then
           rm "$target"
           echo "removed stale link: ${target##*/} ($destination)"

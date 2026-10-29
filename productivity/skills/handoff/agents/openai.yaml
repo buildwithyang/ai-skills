@@ -1,0 +1,5 @@
+interface:
+  display_name: "Handoff"
+  short_description: "将会话压缩为 handoff 文档, 供其他 Agent 接手"
+policy:
+  allow_implicit_invocation: false
